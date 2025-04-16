@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>I LOVE YOU</title>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>БАХА</title>
   <style>
     html, body {
       margin: 0;
@@ -14,20 +14,56 @@
     }
     canvas {
       display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .message {
+      position: absolute;
+      top: 35%;
+      width: 100%;
+      text-align: center;
+      font-size: 38px;
+      font-family: 'Courier New', monospace;
+      color: #ff69b4;
+      z-index: 10;
+      animation: glowBlink 2s infinite;
+    }
+
+    @keyframes glowBlink {
+      0% {
+        opacity: 0;
+        text-shadow: none;
+      }
+      50% {
+        opacity: 1;
+        text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4, 0 0 30px #ff1493;
+      }
+      100% {
+        opacity: 0;
+        text-shadow: none;
+      }
     }
   </style>
 </head>
 <body>
+
+<div class="message">
+   Baha！！！！！<br>
+  Қотағымды жее
+</div>
 <canvas id="canvas"></canvas>
+
 <script>
-  const canvas = document.getElementById('canvas');
-  const ctx = canvas.getContext('2d');
+  const canvas = document.getElementById("canvas");
+  const ctx = canvas.getContext("2d");
 
   function resizeCanvas() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
   }
-  window.addEventListener('resize', resizeCanvas);
+  window.addEventListener("resize", resizeCanvas);
   resizeCanvas();
 
   const letters = "I LOVE YOU".split("");
@@ -39,7 +75,7 @@
     ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    ctx.fillStyle = "#ff69b4"; // 粉红色
+    ctx.fillStyle = "#ff69b4"; // 粉色
     ctx.font = fontSize + "px monospace";
 
     for (let i = 0; i < drops.length; i++) {
@@ -56,5 +92,6 @@
 
   setInterval(draw, 50);
 </script>
+
 </body>
 </html>
